@@ -5,8 +5,161 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Obsługa_kontrolek"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Budowa aplikacji użytkowych w technologii WPF - zajęcia 3" Height="500" Width="700">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="3" Margin="5">
+            <Label>Content</Label>
+            <TextBox x:Name="wpisywany_tekst" TextChanged="TextBox_TextChanged"/>
+        </DockPanel>
+        <GroupBox Grid.Row="1" Margin="5" Header="Alignment">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Margin="3" Header="Horizontal">
+                    <StackPanel>
+                        <RadioButton x:Name="left_horizontal" Margin="3" Checked="AlignmentHorizontal">Left</RadioButton>
+                        <RadioButton x:Name="center_horizontal" Margin="3" Checked="AlignmentHorizontal">Center</RadioButton>
+                        <RadioButton x:Name="right_horizontal" Margin="3" Checked="AlignmentHorizontal">Right</RadioButton>
+                        <RadioButton x:Name="stretch_horizontal" Margin="3" Checked="AlignmentHorizontal">Stretch</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Margin="3" Header="Vertical">
+                    <StackPanel>
+                        <RadioButton x:Name="top_vertical" Margin="3" Checked="AlignmentVertical">Top</RadioButton>
+                        <RadioButton x:Name="center_vertical" Margin="3" Checked="AlignmentVertical">Center</RadioButton>
+                        <RadioButton x:Name="bottom_vertical" Margin="3" Checked="AlignmentVertical">Bottom</RadioButton>
+                        <RadioButton x:Name="stretch_vertical" Margin="3" Checked="AlignmentVertical">Stretch</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Margin="5" Header="Content Alignment" Grid.Column="1" Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Margin="3" Header="Horizontal">
+                    <StackPanel>
+                        <RadioButton Margin="3">Left</RadioButton>
+                        <RadioButton Margin="3">Center</RadioButton>
+                        <RadioButton Margin="3">Right</RadioButton>
+                        <RadioButton Margin="3">Stretch</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Margin="3" Header="Vertical">
+                    <StackPanel>
+                        <RadioButton Margin="3">Top</RadioButton>
+                        <RadioButton Margin="3">Center</RadioButton>
+                        <RadioButton Margin="3">Bottom</RadioButton>
+                        <RadioButton Margin="3">Stretch</RadioButton>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Row="1" Grid.Column="2" Grid.RowSpan="2" Margin="5" Padding="5" Header="Other">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label>Margin</Label>
+                <Slider Grid.Column="1" Minimum="0" Maximum="100" TickPlacement="TopLeft" TickFrequency="10" Margin="5"/>
+                <Label Grid.Row="1">Padding</Label>
+                <Slider Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="100" TickPlacement="TopLeft" TickFrequency="10" Margin="5" />
+                <Label Grid.Row="2">Background</Label>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label>R</Label>
+                    <Slider Grid.Column="1" Margin="2" Minimum="0" Maximum="255"/>
+                    <Label Grid.Column="2">G</Label>
+                    <Slider Grid.Column="3" Margin="2" Minimum="0" Maximum="255"/>
+                    <Label Grid.Column="4">B</Label>
+                    <Slider Grid.Column="5" Margin="2" Minimum="0" Maximum="255"/>
+                </Grid>
+                <Label Grid.Row="3">Foreground</Label>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label>R</Label>
+                    <TextBox Grid.Column="1" Margin="2"></TextBox>
+                    <Label Grid.Column="2">G</Label>
+                    <TextBox Grid.Column="3" Margin="2"></TextBox>
+                    <Label Grid.Column="4">B</Label>
+                    <TextBox Grid.Column="5" Margin="2"></TextBox>
+                </Grid>
+                <GroupBox Header="Border" Grid.Row="4" Grid.ColumnSpan="2" Margin="5" Padding="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Label >Brush</Label>
+                        <ComboBox Grid.Column="1" Margin="2" IsEditable="True">
+                            <ComboBoxItem>Red</ComboBoxItem>
+                            <ComboBoxItem>Green</ComboBoxItem>
+                            <ComboBoxItem>Blue</ComboBoxItem>
+                            <ComboBoxItem>Cyan</ComboBoxItem>
+                            <ComboBoxItem>Yellow</ComboBoxItem>
+                            <ComboBoxItem>Magenta</ComboBoxItem>
+                        </ComboBox>
+                        <Label Grid.Row="1">Thickness</Label>
+                        <Slider Grid.Row="1" Grid.Column="1" Minimum="0" Maximum="20" Margin="2"/>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Font" Grid.Row="2" Grid.ColumnSpan="2" Margin="5" Padding="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label>Family</Label>
+                <TextBox Grid.Column="1" Margin="2" TextChanged="TextBox_TextChanged_1"/>
+                <Label Grid.Column="2">Size</Label>
+                <TextBox x:Name="rozmiar_czcionki" Grid.Column="3" Margin="2" TextChanged="TextBox_TextChanged_2"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                    <CheckBox Margin="5" FontWeight="Bold">Bold</CheckBox>
+                    <CheckBox Margin="5" FontStyle="Italic">Italic</CheckBox>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+        <Label x:Name="wyswietlany_tekst" Grid.Row="3" Grid.ColumnSpan="3" Content="" Margin="5" BorderBrush="Black" BorderThickness="1" />
     </Grid>
 </Window>
